@@ -1,11 +1,9 @@
-# Welcome to your Jupyter Book
+# Welcome
 
-This is a small sample book to give you a feel for how book content is
-structured.
-It shows off a few of the major file types, as well as some sample content.
-It does not go in-depth into any particular topic - check out [the Jupyter Book documentation](https://jupyterbook.org) for more information.
+On this website, you will find my notes on computational biology and biophysics concepts, mostly relating to 3D genome organization.
+This website was built using [Jupyter Book](https://jupyterbook.org/) and hosted on [GitHub Pages](https://github.io/).
 
-Check out the content pages bundled with this sample book to see more.
+Visit the [Hansen Lab website](https://www.ashansenlab.com/) for more information about my lab's research.
 
 ```{tableofcontents}
 ```
