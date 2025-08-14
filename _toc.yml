@@ -2,8 +2,6 @@
 format: jb-book
 root: intro
 chapters:
-  - file: intro
-    title: Homepage
   - file: genomics/genomics
     title: Genomics
     sections:
