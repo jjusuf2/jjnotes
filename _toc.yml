@@ -2,7 +2,9 @@
 format: jb-book
 root: intro
 chapters:
+  - file: intro
+    title: Homepage
   - file: genomics/genomics
-  - title: Genomics
+    title: Genomics
     sections:
       - file: genomics/download_sra
