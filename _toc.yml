@@ -5,4 +5,4 @@ chapters:
   - file: genomics/genomics
   - title: Genomics
     sections:
-      -file: genomics/download_sra
+      - file: genomics/download_sra
