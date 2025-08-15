@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -284,7 +284,7 @@
       
       
       
-      <li><a href="../_sources/genomics/download_sra.ipynb" target="_blank"
+      <li><a href="../_sources/genomics/download_sra.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +294,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -382,6 +382,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="download-sra">
 <h1>Download SRA<a class="headerlink" href="#download-sra" title="Link to this heading">#</a></h1>
+<p>The NCBI Sequence Read Archive (SRA) is an online repository of raw data from high-throughput sequencing experiments. To download raw data, you must obtain the accession number (SRR…) of the dataset you are interested in. You will also need to download the <a class="reference external" href="https://github.com/ncbi/sra-tools">SRA toolkit</a>.</p>
+<p>First, run this command from the home directory (replacing the version number if necessary):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:$PWD/sratoolkit.3.0.10-ubuntu64/bin
+</pre></div>
+</div>
+<p>Then, in the directory where you want to download the data, run the following command (replacing the SRR number with the appropriate one):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefetch</span> <span class="o">-</span><span class="n">v</span> <span class="o">--</span><span class="nb">max</span><span class="o">-</span><span class="n">size</span> <span class="n">u</span> <span class="n">SRR31974205</span>
+</pre></div>
+</div>
+<p>Lastly, run the following command (replacing the SRR number):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">outdir</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">directory</span> <span class="o">--</span><span class="n">dumpbase</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">technical</span> <span class="o">--</span><span class="n">clip</span> <span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="nb">filter</span> <span class="k">pass</span> <span class="o">--</span><span class="n">gzip</span> <span class="n">SRR31974205</span>
+</pre></div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
