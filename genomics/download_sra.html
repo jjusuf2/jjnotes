@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Download SRA &#8212; JJNotes</title>
+    <title>Download raw data from SRA &#8212; JJNotes</title>
   
   
   
@@ -180,7 +180,7 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="genomics.html">Genomics</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Download SRA</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Download raw data from SRA</a></li>
 </ul>
 </details></li>
 </ul>
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Download SRA</h1>
+    <h1>Download raw data from SRA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,19 +380,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="download-sra">
-<h1>Download SRA<a class="headerlink" href="#download-sra" title="Link to this heading">#</a></h1>
-<p>The NCBI Sequence Read Archive (SRA) is an online repository of raw data from high-throughput sequencing experiments. To download raw data, you must obtain the accession number (SRR…) of the dataset you are interested in. You will also need to download the <a class="reference external" href="https://github.com/ncbi/sra-tools">SRA toolkit</a>.</p>
-<p>First, run this command from the home directory (replacing the version number if necessary):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:$PWD/sratoolkit.3.0.10-ubuntu64/bin
+  <section class="tex2jax_ignore mathjax_ignore" id="download-raw-data-from-sra">
+<h1>Download raw data from SRA<a class="headerlink" href="#download-raw-data-from-sra" title="Link to this heading">#</a></h1>
+<p>Need to download raw high-throughput sequencing data from a published paper? Most raw data is shared on the NCBI <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra">Sequence Read Archive</a> (SRA). First, you must find the accession number (SRR…) of the dataset you are interested in, which is usually at the bottom of the dataset’s GEO entry. A single biological sample can have one SRR number or be split across multiple.</p>
+<p>You will also need to download a software package called <a class="reference external" href="https://github.com/ncbi/sra-tools">SRA toolkit</a>.</p>
+<p>First, run the following command (replacing the path to the folder and version number if necessary):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:&lt;path/to/sratoolkit.3.0.10-ubuntu64/bin&gt;
 </pre></div>
 </div>
-<p>Then, in the directory where you want to download the data, run the following command (replacing the SRR number with the appropriate one):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefetch</span> <span class="o">-</span><span class="n">v</span> <span class="o">--</span><span class="nb">max</span><span class="o">-</span><span class="n">size</span> <span class="n">u</span> <span class="n">SRR31974205</span>
+<p>Then, navigate to the directory where you want to download the data, and run the following command, replacing the SRR number as necessary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">prefetch</span> <span class="o">-</span><span class="n">v</span> <span class="o">--</span><span class="nb">max</span><span class="o">-</span><span class="n">size</span> <span class="n">u</span> <span class="o">&lt;</span><span class="n">SRR_number</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>Lastly, run the following command (replacing the SRR number):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">outdir</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">directory</span> <span class="o">--</span><span class="n">dumpbase</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">technical</span> <span class="o">--</span><span class="n">clip</span> <span class="o">--</span><span class="n">read</span><span class="o">-</span><span class="nb">filter</span> <span class="k">pass</span> <span class="o">--</span><span class="n">gzip</span> <span class="n">SRR31974205</span>
+<p>The option <code class="docutils literal notranslate"><span class="pre">--max-size</span> <span class="pre">u</span></code> removes any existing limits on the maximum size of the downloaded file.</p>
+<p>Then, run the following command, replacing the SRR number as necessary:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fasterq</span><span class="o">-</span><span class="n">dump</span> <span class="o">--</span><span class="n">outdir</span> <span class="o">&lt;/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">output</span><span class="o">/</span><span class="n">directory</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">split</span><span class="o">-</span><span class="n">files</span> <span class="o">&lt;</span><span class="n">SRR_number</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--split-files</span></code> flag creates two files, <code class="docutils literal notranslate"><span class="pre">&lt;SRR_number&gt;_1.fastq</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;SRR_number&gt;_2.fastq</span></code>. Note that some additional flags typically used in the older command <code class="docutils literal notranslate"><span class="pre">fastq-dump</span></code> are no longer needed; <code class="docutils literal notranslate"><span class="pre">fasterq-dump</span></code> automatically skips technical reads, applies appropriate filters, and compresses the output.</p>
+<p>Lastly, compress the files, if desired:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gzip</span> <span class="o">&lt;</span><span class="n">SRR_number</span><span class="o">&gt;</span><span class="n">_1</span><span class="o">.</span><span class="n">fastq</span> <span class="o">&amp;</span> <span class="n">gzip</span> <span class="o">&lt;</span><span class="n">SRR_number</span><span class="o">&gt;</span><span class="n">_2</span><span class="o">.</span><span class="n">fastq</span>
 </pre></div>
 </div>
 </section>
