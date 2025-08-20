@@ -2,7 +2,9 @@
 
 Need to download raw high-throughput sequencing data from a published paper? Most raw data is shared on the NCBI [Sequence Read Archive](https://www.ncbi.nlm.nih.gov/sra) (SRA). To download raw data, you will need to install a software package called [SRA toolkit](https://github.com/ncbi/sra-tools).
 
-In this example, we will download raw data from a Micro-C experiment from Hsieh et al. 2020 (GEO: [GSE130275](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130275)). Let's download the raw data for the Micro-C on wild-type mESCs, replicate 1 ("ESC_WT01"). Its SRA accession number is SRR8954797, which can be found at the bottom of the dataset's GEO entry. Sometimes, one sequencing experiment can be split across multiple SRA accession numbers, so you will have to download them individually and merge them later.
+In this example, we will download raw data from a Micro-C experiment from Hsieh et al. 2020 (GEO: [GSE130275](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130275)). Let's download the raw data for the Micro-C on wild-type mESCs, replicate 1 ("ESC_WT01"). Its SRA accession number is SRR8954797, which can be found at the bottom of the dataset's GEO entry.
+
+> **_NOTE:_** Sometimes, one sequencing experiment can be split across multiple SRA accession numbers. In this case, you will have to download them individually and merge them later.
 
 First, run the following command (replacing the path to the _sratoolkit_ folder and version number if necessary):
 ```

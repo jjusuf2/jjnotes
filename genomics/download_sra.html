@@ -383,7 +383,10 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="download-raw-sequencing-data">
 <h1>Download raw sequencing data<a class="headerlink" href="#download-raw-sequencing-data" title="Link to this heading">#</a></h1>
 <p>Need to download raw high-throughput sequencing data from a published paper? Most raw data is shared on the NCBI <a class="reference external" href="https://www.ncbi.nlm.nih.gov/sra">Sequence Read Archive</a> (SRA). To download raw data, you will need to install a software package called <a class="reference external" href="https://github.com/ncbi/sra-tools">SRA toolkit</a>.</p>
-<p>In this example, we will download raw data from a Micro-C experiment from Hsieh et al. 2020 (GEO: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130275">GSE130275</a>). Let’s download the raw data for the Micro-C on wild-type mESCs, replicate 1 (“ESC_WT01”). Its SRA accession number is SRR8954797, which can be found at the bottom of the dataset’s GEO entry. Sometimes, one sequencing experiment can be split across multiple SRA accession numbers, so you will have to download them individually and merge them later.</p>
+<p>In this example, we will download raw data from a Micro-C experiment from Hsieh et al. 2020 (GEO: <a class="reference external" href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130275">GSE130275</a>). Let’s download the raw data for the Micro-C on wild-type mESCs, replicate 1 (“ESC_WT01”). Its SRA accession number is SRR8954797, which can be found at the bottom of the dataset’s GEO entry.</p>
+<blockquote>
+<div><p><strong><em>NOTE:</em></strong> Sometimes, one sequencing experiment can be split across multiple SRA accession numbers. In this case, you will have to download them individually and merge them later.</p>
+</div></blockquote>
 <p>First, run the following command (replacing the path to the <em>sratoolkit</em> folder and version number if necessary):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:~/sratoolkit.3.0.10-ubuntu64/bin
 </pre></div>
